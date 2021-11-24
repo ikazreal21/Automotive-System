@@ -1,3 +1,4 @@
 {
-  "python.pythonPath": "c:\\Users\\Admin\\Zaki\\Coding_Stuff\\Python\\Django-Apps\\Scripts\\python.exe"
+  "python.pythonPath": "c:\\Users\\Admin\\Zaki\\Coding_Stuff\\Python\\Django-Apps\\Scripts\\python.exe",
+  "python.formatting.provider": "black"
 }
