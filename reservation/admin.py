@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+
+admin.site.register(PartsAndAccess)
+admin.site.register(Services)
+admin.site.register(ReservationShed)
+admin.site.register(PartsOrder)
