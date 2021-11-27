@@ -3,20 +3,24 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <title>Home</title>
-    <link rel = "icon" href="icons/car.png" type="image/icon">
     <link rel="stylesheet" href="dash.css" />
+    <title>Schedule</title>
+    <link rel = "icon" href="icons/car.png" type="image/icon">
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/evo-calendar.min.css" />
+    <link rel="stylesheet" href="./css/evo-calendar.midnight-blue.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  
+ 
     <div class="sidebar">
       <div class="logo-details">
-        <i class=""></i>
+        <i class=" "></i>
         <div class="logo_name">South's Team</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
@@ -73,7 +77,7 @@
             <i class="bx bx-phone"></i>
             <span class="links_name">CONTACT US</span>
           </a>
-          <span class="tooltip">CONTACT US<span>
+          <span class="tooltip">CONTACT US</span>
         </li>
 
         <li class="profile">
@@ -90,23 +94,49 @@
     </div>
       </ul>
     </div>
-    
     <section class="home-section">
       <header>
+        
         <div class="containerHeader">
             <img src = "images/header.png" 
           width="1250" height="130" ></img>
- 
-          <div class="home">
-            <img class="homeGIF" src="images/home.gif"  width="1255" height="768" />
-          </div>
         </div>
-      </header>
-      <body>
-        <div class="containerHome">
-      <div class="text"><h4>Home</h4></div>
+        </header>
+        <div class="text"><h4>Schedule<br><br></h4>
+       
+        </div>
+     
+        <div class="schedule">
+          
+          
+        
+        <div id="calendar"></div>
+       
+       
+      
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+      <script src="./js/evo-calendar.min.js"></script>
     </section>
-  
+    <script>
+      $(document).ready(function () {
+        $("#calendar").evoCalendar({
+
+          theme: "Midnight Blue",
+          calendarEvents: [
+      {
+        id: 'event1', // Event's ID (required)
+        name: "Car Repair", // Event name (required)
+        date: "November/21/2021", // Event date (required)
+        type: "appointment", // Event type (required)
+        everyYear: true, // Same event every year (optional)
+        description: "Painting and change wheels",
+        color: "#fffff"
+      }     
+    ]
+        });
+      });
+  </script>
     <script>
       let sidebar = document.querySelector(".sidebar");
       let closeBtn = document.querySelector("#btn");
@@ -132,7 +162,6 @@
         }
       }
     </script>
-    
-  </body>
+    <script src="Aapp.js"></script>
   </body>
 </html>
