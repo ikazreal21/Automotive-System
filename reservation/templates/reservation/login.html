@@ -30,7 +30,8 @@
         <div class="title">
           <h1>WELCOME</h1>
         </div>
-        <form action="">
+        <form action="" method="post">
+          {% csrf_token %}
           <div class="username">
             <label for="username">Username</label><br />
             <input type="text" name="username" id="username" />
@@ -39,14 +40,18 @@
             <label for="password">Password</label><br />
             <input type="password" name="password" id="password" />
           </div>
-        </form>
+        
         <div class="button1">
-          <a href="#">Forgot Password</a>
+          <a href="">Forgot Password</a>
           <input type="submit" value="Sign In" id="login" />
         </div>
+      </form>
+        {% for i in messages %}
+			  <p class="message">{{i}}</p>
+		    {% endfor %}
         <div class="button2">
           <h4>Not yet Registered?</h4>
-          <a href="Asignup.html">Sign Up Here</a>
+          <a href="{% url 'register' %}">Sign Up Here</a>
         </div>
       </div>
     </div>
