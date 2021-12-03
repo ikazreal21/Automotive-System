@@ -55,7 +55,15 @@ def Home(request):
 
 @login_required(login_url="login")
 def Reservation(request):
-    return render(request, "reservation/reservation.html")
+    reservationform = ReservationForm()
+    if request.method == "POST":
+        reservationform = ReservationForm(request.POST)
+        if reservationform.is_valid():
+            reservationform.save(commit=False).user = request.user
+            reservationform.save()
+        return redirect("/")
+    context = {"form": reservationform}
+    return render(request, "reservation/reservation.html", context)
 
 
 @login_required(login_url="login")
