@@ -6,9 +6,21 @@ from django.forms import ModelForm
 from .models import *
 
 
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = ReservationShed
+        fields = "__all__"
+
+        widgets = {"schedule": DateInput()}
+
+
+class PartsOrderForm(forms.ModelForm):
+    class Meta:
+        model = PartsOrder
         fields = "__all__"
 
 
