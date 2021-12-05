@@ -15,13 +15,15 @@ class ReservationForm(forms.ModelForm):
         model = ReservationShed
         fields = "__all__"
 
-        widgets = {"schedule": DateInput()}
+        widgets = {"schedule": DateInput(), "services": forms.CheckboxSelectMultiple}
 
 
 class PartsOrderForm(forms.ModelForm):
     class Meta:
         model = PartsOrder
-        fields = "__all__"
+        fields = ["parts"]
+
+        widgets = {"parts": forms.CheckboxSelectMultiple}
 
 
 class CreateUserForm(UserCreationForm):
