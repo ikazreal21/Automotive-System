@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carwash</title>
+    <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
+
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+        <div class="logo-details">
+          <i class=""></i>
+          <div class="logo_name">South's Team</div>
+          <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search..." />
+            <span class="tooltip">Search</span>
+          </li>
+          <li>
+            <a href="{% url 'home' %}">
+              <i class="bx bx-home"></i>
+              <span class="links_name">HOME</span>
+            </a>
+            <span class="tooltip">HOME</span>
+          </li>
+          <li>
+            <a href="{% url 'about'%}">
+              <i class="bx bx-question-mark"></i>
+              <span class="links_name">ABOUT US</span>
+            </a>
+            <span class="tooltip">ABOUT US</span>
+          </li>
+          <li>
+            <a href="{% url 'services'%}">
+              <i class="bx bx-wrench"></i>
+              <span class="links_name">SERVICES</span>
+            </a>
+            <span class="tooltip">SERVICES</span>
+          </li>
+          <li>
+            <a href="{% url 'carwash'%}">
+              <i class="bx bx-car"></i>
+              <span class="links_name">CARWASH</span>
+            </a>
+            <span class="tooltip">CARWASH</span>
+          </li>
+          <li>
+            <a href="{% url 'parts'%}">
+              <i class="bx bx-cart-alt"></i>
+              <span class="links_name">PARTS/ACCESSORIES</span>
+            </a>
+            <span class="tooltip">PARTS/ACCESSORIES</span>
+          </li>
+          <li>
+            <a href="{% url 'schedule'%}">
+              <i class="bx bx-calendar"></i>
+              <span class="links_name">SCHEDULE</span>
+            </a>
+            <span class="tooltip">SCHEDULE</span>
+          </li>
+          <li>
+            <a href="{% url 'contacts'%}">
+              <i class="bx bx-phone"></i>
+              <span class="links_name">CONTACT US</span>
+            </a>
+            <span class="tooltip">CONTACT US<span>
+          </li>
+    
+          <li class="profile">
+            <div class="profile-details">
+              <img src="{% static 'icons\jennie.jpg' %}" alt="profileImg" />
+              <div class="name_job">
+                <div class="name">{{request.user.username}}</div>
+                <div class="job">00{{request.user.id}}</div>
+              </div>
+            </div>
+            <a href="{% url 'logout' %}"><i class="bx bx-log-out" id="log_out"></i></a>
+          </li>
+        </ul>
+      </div>
+    <section class="home-section">
+      <header>        
+        <div class="containerHeader">
+            <img src = "{% static 'images/header.png' %}" 
+          width="1250" height="130" ></img>   
+        </div>
+      </header>
+      <div class="text">
+        <h4>Car Wash</h4>
+        <div class="ecowash">
+          <br>
+          <u>Eco Wash</u>
+          <img class="eco" src="{% static 'icons\eco wash.png' %}" alt="Ecowash" />
+          <p>Carwash</p>
+          <p>Remove and Clean Rims</p>
+          <p>Wipe Door Jams/Vacuums</p>
+          <p>Towel Dry</p>
+          <p>Free Car Perfume Accessories</p>
+          <a href="#"><div class="button" onclick="ecoWashPrice();">PRICE</div></a>
+          <br>
+        </div>
+        <div class="premium">
+          <u>Premium Wash</u>
+          <img class="pre" src="{% static 'icons\premium.png' %}" alt="Premium Wash" />
+          <p>Carwash</p>
+          <p>Remove Bugs Clean Rims/Vacuum/Towel Dry</p>
+          <p>Windows Cleaned, Wipe Door Jams</p>
+          <p>Body Shield Works</p>
+          <p>Free Car Perfume Accessories</p>
+          <a href="#"><div class="button" onclick="premiumWashPrice();">PRICE</div></a>
+        </div>
+        <div class="goldwash">
+          <u>Gold Standard Wash</u>
+          <img
+            class="gold"
+            src="{% static 'icons\gold standard.png' %}"
+            alt="Gold Standard Wash"
+          />
+          <p>Full Carwash</p>
+          <p>Remove Bugs, Clean Rims, Wipe Door Jams/Vacuum</p>
+          <p>Interior and Exterior</p>
+          <p>Armor (Silicone/Armor All)/ All Tires, and Windows Cleaned</p>
+          <p>Free Car Perfume Accessories</p>
+          <a href="#"><div class="button" onclick="goldWashPrice();">PRICE</div></a>
+        </div>
+      </div>
+    </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+
+      searchBtn.addEventListener("click", () => {
+        // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+
+      // following are the code to change sidebar button(optional)
+      function menuBtnChange() {
+        if (sidebar.classList.contains("open")) {
+          closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+        } else {
+          closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
+        }
+      }
+    </script>
+     <script src="{% static 'js/Aapp.js' %}"></script>
+  </body>
+</html>
