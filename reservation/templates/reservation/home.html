@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Home</title>
-    <link rel = "icon" href="icons/car.png" type="image/icon">
-    <link rel="stylesheet" href="dash.css" />
+    <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -27,49 +27,49 @@
           <span class="tooltip">Search</span>
         </li>
         <li>
-          <a href="dashhome.html">
+          <a href="{% url 'home' %}">
             <i class="bx bx-home"></i>
             <span class="links_name">HOME</span>
           </a>
           <span class="tooltip">HOME</span>
         </li>
         <li>
-          <a href="dashabout.html">
+          <a href="{% url 'about'%}">
             <i class="bx bx-question-mark"></i>
             <span class="links_name">ABOUT US</span>
           </a>
           <span class="tooltip">ABOUT US</span>
         </li>
         <li>
-          <a href="dashservices.html">
+          <a href="{% url 'services'%}">
             <i class="bx bx-wrench"></i>
             <span class="links_name">SERVICES</span>
           </a>
           <span class="tooltip">SERVICES</span>
         </li>
         <li>
-          <a href="dashcarwash.html">
+          <a href="{% url 'carwash'%}">
             <i class="bx bx-car"></i>
             <span class="links_name">CARWASH</span>
           </a>
           <span class="tooltip">CARWASH</span>
         </li>
         <li>
-          <a href="dashparts.html">
+          <a href="{% url 'parts'%}">
             <i class="bx bx-cart-alt"></i>
             <span class="links_name">PARTS/ACCESSORIES</span>
           </a>
           <span class="tooltip">PARTS/ACCESSORIES</span>
         </li>
         <li>
-          <a href="dashsched.html">
+          <a href="{% url 'schedule'%}">
             <i class="bx bx-calendar"></i>
             <span class="links_name">SCHEDULE</span>
           </a>
           <span class="tooltip">SCHEDULE</span>
         </li>
         <li>
-          <a href="dashcontact.html">
+          <a href="{% url 'contacts'%}">
             <i class="bx bx-phone"></i>
             <span class="links_name">CONTACT US</span>
           </a>
@@ -78,27 +78,25 @@
 
         <li class="profile">
           <div class="profile-details">
-            <img src="icons\jennie.jpg" alt="profileImg" />
+            <img src="{% static 'icons\jennie.jpg' %}" alt="profileImg" />
             <div class="name_job">
-              <div class="name">Jennie Ruby Jane</div>
-              <div class="job">0116</div>
+              <div class="name">{{request.user.username}}</div>
+              <div class="job">00{{request.user.id}}</div>
             </div>
           </div>
-          <i class="bx bx-log-out" id="log_out"><a href="{% url 'logout' %}"></a></i>
+          <a href="{% url 'logout' %}"><i class="bx bx-log-out" id="log_out"></i></a>
         </li>
-      </ul>
-    </div>
       </ul>
     </div>
     
     <section class="home-section">
       <header>
         <div class="containerHeader">
-            <img src = "images/header.png" 
+            <img src = "{% static 'images/header.png' %}" 
           width="1250" height="130" ></img>
  
           <div class="home">
-            <img class="homeGIF" src="images/home.gif"  width="1255" height="768" />
+            <img class="homeGIF" src="{% static 'images/home.gif' %}"  width="1255" height="768" />
           </div>
         </div>
       </header>
