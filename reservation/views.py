@@ -68,9 +68,38 @@ def Reservation(request):
 
 @login_required(login_url="login")
 def Schedule(request):
-    return render(request, "reservation/sched.html")
+    reservation = ReservationShed.objects.all()
+    return render(request, "reservation/sched.html", {"sched": reservation})
+
+
+@login_required(login_url="login")
+def PartsAccess(request):
+    form = PartsOrderForm()
+    if request.method == "POST":
+        form = PartsOrderForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False).user = request.user
+            form.save()
+        return redirect("parts")
+    context = {"form": form}
+    return render(request, "reservation/parts-acces.html", context)
+
+
+@login_required(login_url="login")
+def Carwash(request):
+    return render(request, "reservation/carwash.html")
+
+
+@login_required(login_url="login")
+def Services(request):
+    return render(request, "reservation/services.html")
 
 
 @login_required(login_url="login")
 def About(request):
     return render(request, "reservation/about.html")
+
+
+@login_required(login_url="login")
+def Contact(request):
+    return render(request, "reservation/contacts.html")
