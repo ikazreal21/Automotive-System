@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <title>Reservation</title>
+    <title>Services</title>
     <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
 
     <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
@@ -14,7 +14,6 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-
   <div class="sidebar">
     <div class="logo-details">
       <i class=""></i>
@@ -89,27 +88,133 @@
       </li>
     </ul>
   </div>
-    
-    <body>
+  
     <section class="home-section">
       <header>
+        
         <div class="containerHeader">
-            <img src = "{% static 'images/header.png' %}" 
+          
+       
+            <img src = "images/header.png" 
           width="1250" height="130" ></img>
-         
+        
         </div>
       </header>
-      <form action="" enctype="multipart/form-data" method="post">
-        {% csrf_token %}
-        <label>Services: </label>
-        {{form.services}}
-        <label>Schedule: </label>
-        {{form.schedule}}
-        <div class="btn-flex">
-          <button type="submit" class="btn">Add Food</button>
-          <button type="reset" class="btn">Reset</button>
+      
+      <body>
+        
+      <div class="text">
+        <h4>Services</h4>
         </div>
-      </form>
+          <div class="left">
+            <u><b>Car Mechanic</b> </u>
+            <div class="clearfix">
+              <img
+                class="img2"
+                src="icons\car mechanic.png"
+                alt="Car Mechanic"
+              />
+              <p>
+                Oil change, oil filter change, inspection of main components.
+              </p>
+            </div>
+            <br />
+            <div class="clearfix1">
+              <u><b>Customer Care</b></u>
+              <img
+                class="img1"
+                src="icons\customer care.png"
+                alt="Customer Care"
+              />
+              <p>
+                Provides and delivering professional, helpful, high quality
+                service and assistance before, during, and after customers
+                requirements.
+              </p>
+            </div>
+            <br />
+            <div class="carmaintenance">
+              <u><b>Car Maintenance</b></u>
+              <p>
+                Battery, Lights, Water, Brake, Air, Gas, Engine, Tire, etc.
+                <br />
+                Basic components to be check daily to maintain your vehicles in
+                good condition whatever season.
+              </p>
+              <img
+                class="img3"
+                src="icons\car maintenance.png"
+                alt="Car Maintenance"
+              />
+            </div>
+          </div>
+
+          <div class="middle">
+            <u><b>Diagnostic</b></u>
+            <div class="diagnostics">
+              <img class="diag" src="icons\diagnostic.png" alt="Diagnostic" />
+              <p>
+                Our engine diagnostic services help us to provide youwith an
+                accurate diagnostics of your vehicles engine problem and repair
+                it.
+              </p>
+            </div>
+            <br />
+            <div class="technical">
+              <u><b>Technical Repair</b></u>
+              <img
+                class="tech"
+                src="icons\technical repair.png"
+                alt="Technical Repair"
+              />
+              <p>
+                Body components including trim, doors, windows, low
+                voltage/auxiliary electrical system and electronics, Audio and
+                video devices, Cameras (front and back), Low voltage electrical
+                supply system, Gauges and meters.
+              </p>
+              <img class="tech1" src="icons\technical repair 1.png" />
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="service">
+              <img
+                class="tire"
+                src="icons\tire service.png"
+                alt="Tire Services"
+              />
+              <p>
+                
+            <u><b>Tire Repair</b><u>
+             
+            </p>
+               <u> <li>Replacement</li>
+              
+              
+                <li>Tire Balancing</li>
+              
+                <li>Vulcanization</li></b></u>
+              </p>
+            </div>
+            <br />
+            <div class="carpainting">
+              <u><b>Car Painting</b></u>
+              <p>
+                Customize your cars based on your own design and color thru the
+                help of out very own professional graphic designers and
+                engineering design team.
+              </p>
+              <img
+                class="paint"
+                src="icons\car painting.png"
+                alt="Car Painting"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </section>
     <script>
       let sidebar = document.querySelector(".sidebar");
@@ -136,7 +241,5 @@
         }
       }
     </script>
-    <script src="{% static 'js/Aapp.js' %}"></script>
   </body>
 </html>
-

@@ -3,9 +3,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="dash.css" />
-    <title>Schedule</title>
-    <link rel = "icon" href="icons/car.png" type="image/icon">
+    <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
+
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -18,107 +18,107 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
  
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class=" "></i>
-        <div class="logo_name">South's Team</div>
-        <i class="bx bx-menu" id="btn"></i>
-      </div>
-      <ul class="nav-list">
-        <li>
-          <i class="bx bx-search"></i>
-          <input type="text" placeholder="Search..." />
-          <span class="tooltip">Search</span>
-        </li>
-        <li>
-          <a href="dashhome.html">
-            <i class="bx bx-home"></i>
-            <span class="links_name">HOME</span>
-          </a>
-          <span class="tooltip">HOME</span>
-        </li>
-        <li>
-          <a href="dashabout.html">
-            <i class="bx bx-question-mark"></i>
-            <span class="links_name">ABOUT US</span>
-          </a>
-          <span class="tooltip">ABOUT US</span>
-        </li>
-        <li>
-          <a href="dashservices.html">
-            <i class="bx bx-wrench"></i>
-            <span class="links_name">SERVICES</span>
-          </a>
-          <span class="tooltip">SERVICES</span>
-        </li>
-        <li>
-          <a href="dashcarwash.html">
-            <i class="bx bx-car"></i>
-            <span class="links_name">CARWASH</span>
-          </a>
-          <span class="tooltip">CARWASH</span>
-        </li>
-        <li>
-          <a href="dashparts.html">
-            <i class="bx bx-cart-alt"></i>
-            <span class="links_name">PARTS/ACCESSORIES</span>
-          </a>
-          <span class="tooltip">PARTS/ACCESSORIES</span>
-        </li>
-        <li>
-          <a href="dashsched.html">
-            <i class="bx bx-calendar"></i>
-            <span class="links_name">SCHEDULE</span>
-          </a>
-          <span class="tooltip">SCHEDULE</span>
-        </li>
-        <li>
-          <a href="dashcontact.html">
-            <i class="bx bx-phone"></i>
-            <span class="links_name">CONTACT US</span>
-          </a>
-          <span class="tooltip">CONTACT US</span>
-        </li>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class=""></i>
+      <div class="logo_name">South's Team</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search..." />
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="{% url 'home' %}">
+          <i class="bx bx-home"></i>
+          <span class="links_name">HOME</span>
+        </a>
+        <span class="tooltip">HOME</span>
+      </li>
+      <li>
+        <a href="{% url 'about'%}">
+          <i class="bx bx-question-mark"></i>
+          <span class="links_name">ABOUT US</span>
+        </a>
+        <span class="tooltip">ABOUT US</span>
+      </li>
+      <li>
+        <a href="{% url 'services'%}">
+          <i class="bx bx-wrench"></i>
+          <span class="links_name">SERVICES</span>
+        </a>
+        <span class="tooltip">SERVICES</span>
+      </li>
+      <li>
+        <a href="{% url 'carwash'%}">
+          <i class="bx bx-car"></i>
+          <span class="links_name">CARWASH</span>
+        </a>
+        <span class="tooltip">CARWASH</span>
+      </li>
+      <li>
+        <a href="{% url 'parts'%}">
+          <i class="bx bx-cart-alt"></i>
+          <span class="links_name">PARTS/ACCESSORIES</span>
+        </a>
+        <span class="tooltip">PARTS/ACCESSORIES</span>
+      </li>
+      <li>
+        <a href="{% url 'schedule'%}">
+          <i class="bx bx-calendar"></i>
+          <span class="links_name">SCHEDULE</span>
+        </a>
+        <span class="tooltip">SCHEDULE</span>
+      </li>
+      <li>
+        <a href="{% url 'contacts'%}">
+          <i class="bx bx-phone"></i>
+          <span class="links_name">CONTACT US</span>
+        </a>
+        <span class="tooltip">CONTACT US<span>
+      </li>
 
-        <li class="profile">
-          <div class="profile-details">
-            <img src="icons\jennie.jpg" alt="profileImg" />
-            <div class="name_job">
-              <div class="name">Jennie Ruby Jane</div>
-              <div class="job">0116</div>
-            </div>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="{% static 'icons\jennie.jpg' %}" alt="profileImg" />
+          <div class="name_job">
+            <div class="name">{{request.user.username}}</div>
+            <div class="job">00{{request.user.id}}</div>
           </div>
-          <i class="bx bx-log-out" id="log_out"></i>
-        </li>
-      </ul>
-    </div>
-      </ul>
-    </div>
+        </div>
+        <a href="{% url 'logout' %}"><i class="bx bx-log-out" id="log_out"></i></a>
+      </li>
+    </ul>
+  </div>
     <section class="home-section">
       <header>
         
         <div class="containerHeader">
-            <img src = "images/header.png" 
+            <img src = "{% static 'images/header.png' %}" 
           width="1250" height="130" ></img>
         </div>
         </header>
         <div class="text"><h4>Schedule<br><br></h4>
-       
         </div>
      
         <div class="schedule">
+          <h5>Book a Schedule <a href="{% url 'reservation' %}">Here</a></h5>
           
-          
-        
-        <div id="calendar"></div>
-       
+        {% for i in sched %}
+        <div id="calendar">
+          <h3>{{i.date}} - </h3> 
+          <p>Reserved By: {{i.user}}</p>
+        </div>
+       {% endfor %}
        
       
       </div>
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="./js/evo-calendar.min.js"></script>
     </section>
-    <script>
+    <!-- <script>
       $(document).ready(function () {
         $("#calendar").evoCalendar({
 
@@ -136,7 +136,7 @@
     ]
         });
       });
-  </script>
+  </script> -->
     <script>
       let sidebar = document.querySelector(".sidebar");
       let closeBtn = document.querySelector("#btn");
@@ -162,6 +162,6 @@
         }
       }
     </script>
-    <script src="Aapp.js"></script>
+    <script src="{% static 'Aapp.js' %}"></script>
   </body>
 </html>
