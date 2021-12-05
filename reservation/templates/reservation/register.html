@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel = "icon" href="icons/car.png" type="image/icon">
+    <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
     <title>South's Team Auto Services</title>
-    <link rel="stylesheet" href="Asignup.css" />
+    <link rel="stylesheet" href="{% static 'Asignup.css' %}" />
     <title>Document</title>
   </head>
   <style>
     body {
-      background-image: url('images/backgroundServices.png');
+      background-image: url("{% static 'images/backgroundServices.png' %}");
       background-repeat: no-repeat;
       background-attachment: fixed;
 
@@ -22,7 +22,7 @@
     <div class="containerHeader">
           
        
-      <img src = "images/header.png" 
+      <img src = "{% static 'images/header.png' %}" 
     width="1350" height="130" ></img>
   
     <center>
