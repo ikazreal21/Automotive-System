@@ -23,6 +23,9 @@ class ReservationShed(models.Model):
     services = models.ManyToManyField(Services)
     schedule = models.DateTimeField()
 
+    def date(self):
+        return self.schedule.strftime("%B %d %Y")
+
     def __str__(self):
         return f"{self.user}"
 
