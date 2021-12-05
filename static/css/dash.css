@@ -1,0 +1,622 @@
+/* Google Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* div header */
+.containerHeader {
+  width: 98%;
+  margin: auto;
+}
+header {
+  background-color: #ffffff;
+  height: 150px;
+}
+header nav {
+  float: right;
+  margin-right: 200px;
+  overflow: hidden;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+}
+header a:hover {
+  color: #879abe;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: white;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+.home {
+  position: relative;
+}
+.homeGIF {
+  float: center;
+}
+
+.contactUs {
+  position: absolute;
+  bottom: 50px;
+}
+.sidebar.open {
+  width: 250px;
+}
+/**Parts**/
+.parts {
+  position: absolute;
+  left: 20px;
+  width: 1270px;
+  top: 150px;
+  border: none;
+  padding: 25px;
+}
+.checkBox p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.containerCB {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+
+  margin-bottom: 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default checkbox */
+.containerCB input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  margin-top: 3px;
+  border-radius: 4px;
+}
+.btnParts {
+  background-color: #002060;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 290px;
+  margin-left: 950px;
+  border-radius: 5px;
+}
+/* On mouse-over, add a grey background color */
+.containerCB:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerCB input:checked ~ .checkmark {
+  background-color: #002060;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containerCB input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerCB .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #002060;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i {
+  color: #002060;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: white;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #002060;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #002060;
+  color: white;
+}
+
+.sidebar.open .bx-search:hover {
+  background: #002060;
+  color: white;
+}
+
+.sidebar .bx-search:hover {
+  background: #002060;
+  color: white;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: white;
+}
+
+.sidebar li a:hover {
+  background: #002060;
+}
+
+.sidebar li a .links_name {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: white;
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+.sidebar li.profile {
+  position: fixed;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: white;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.sidebar.open li.profile {
+  width: 250px;
+}
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.sidebar li img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  white-space: nowrap;
+}
+.sidebar li.profile .job {
+  font-size: 12px;
+}
+.sidebar .profile #log_out {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: white;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+.sidebar.open .profile #log_out {
+  width: 50px;
+  background: none;
+}
+.home-section {
+  position: relative;
+  background: white;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+.home-section .text {
+  display: inline-block;
+  color: black;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+.home-section .text1 {
+  display: inline-block;
+  color: black;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+.home-section .text2 {
+  display: inline-block;
+  color: black;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+/*button {
+  background-color: #002060;
+  border-color: black;
+  color: white;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+}*/
+.right {
+  position: absolute;
+  left: 852px;
+  width: 420px;
+  border: none;
+  padding: 10px;
+  text-align: center;
+}
+.left {
+  position: absolute;
+  left: 0px;
+  width: 420px;
+  border: none;
+  padding: 10px;
+  text-align: center;
+}
+.middle {
+  position: absolute;
+  left: 426px;
+  width: 420px;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  background: lightblue;
+}
+
+.clearfix p {
+  font-size: 18px;
+}
+
+.clearfix1 p {
+  font-size: 18px;
+}
+
+.carmaintenance p {
+  font-size: 18px;
+}
+
+.diagnostics p {
+  font-size: 18px;
+}
+
+.technical p {
+  font-size: 18px;
+}
+
+.carpainting p {
+  font-size: 18px;
+}
+
+.aboutus p {
+  text-indent: 50px;
+  font-size: 20px;
+}
+
+.ecowash p {
+  font-size: 18px;
+}
+
+.premium p {
+  font-size: 18px;
+}
+
+.goldwash p {
+  font-size: 18px;
+}
+
+.img1 {
+  float: left;
+}
+
+.img2 {
+  float: right;
+}
+
+.diag {
+  float: right;
+}
+
+.tech {
+  float: left;
+}
+
+.paint {
+  float: bottom;
+}
+
+.eco {
+  float: right;
+}
+
+.pre {
+  float: right;
+}
+
+.gold {
+  float: right;
+}
+
+.about {
+  float: left;
+  width: 400px;
+  height: 600px;
+}
+
+.aboutus u {
+  cursor: pointer;
+}
+
+.left u {
+  cursor: pointer;
+}
+
+.clearfix::after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+}
+
+.ecowash {
+  position: absolute;
+  left: 20px;
+  width: 1270px;
+  bottom: 150px;
+  border: none;
+  padding: 10px;
+}
+
+.premium {
+  position: absolute;
+  left: 20px;
+  bottom: -90px;
+  width: 1270px;
+  border: none;
+  padding: 10px;
+}
+
+.goldwash {
+  position: absolute;
+  left: 20px;
+  bottom: -350px;
+  width: 1270px;
+  border: none;
+  padding: 10px;
+  margin-top: 1500px;
+}
+
+.button {
+  background-color: #002060;
+  width: 200px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: px solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.appointment p {
+  font-size: 50px;
+  margin-top: 20px;
+  color: #002060;
+}
+.btnAppointment {
+  background-color: #002060;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 290px;
+  margin-left: 95px;
+  border-radius: 5px;
+}
+.calendar p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+#calendar {
+  width: 90%;
+}
