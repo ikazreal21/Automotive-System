@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parts</title>
+    <link rel = "icon" href="{% static 'icons/car.png' %}" type="image/icon">
+
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class=""></i>
+      <div class="logo_name">South's Team</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search..." />
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="{% url 'home' %}">
+          <i class="bx bx-home"></i>
+          <span class="links_name">HOME</span>
+        </a>
+        <span class="tooltip">HOME</span>
+      </li>
+      <li>
+        <a href="{% url 'about'%}">
+          <i class="bx bx-question-mark"></i>
+          <span class="links_name">ABOUT US</span>
+        </a>
+        <span class="tooltip">ABOUT US</span>
+      </li>
+      <li>
+        <a href="{% url 'services'%}">
+          <i class="bx bx-wrench"></i>
+          <span class="links_name">SERVICES</span>
+        </a>
+        <span class="tooltip">SERVICES</span>
+      </li>
+      <li>
+        <a href="{% url 'carwash'%}">
+          <i class="bx bx-car"></i>
+          <span class="links_name">CARWASH</span>
+        </a>
+        <span class="tooltip">CARWASH</span>
+      </li>
+      <li>
+        <a href="{% url 'parts'%}">
+          <i class="bx bx-cart-alt"></i>
+          <span class="links_name">PARTS/ACCESSORIES</span>
+        </a>
+        <span class="tooltip">PARTS/ACCESSORIES</span>
+      </li>
+      <li>
+        <a href="{% url 'schedule'%}">
+          <i class="bx bx-calendar"></i>
+          <span class="links_name">SCHEDULE</span>
+        </a>
+        <span class="tooltip">SCHEDULE</span>
+      </li>
+      <li>
+        <a href="{% url 'contacts'%}">
+          <i class="bx bx-phone"></i>
+          <span class="links_name">CONTACT US</span>
+        </a>
+        <span class="tooltip">CONTACT US<span>
+      </li>
+
+      <li class="profile">
+        <div class="profile-details">
+          <img src="{% static 'icons\jennie.jpg' %}" alt="profileImg" />
+          <div class="name_job">
+            <div class="name">{{request.user.username}}</div>
+            <div class="job">00{{request.user.id}}</div>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}"><i class="bx bx-log-out" id="log_out"></i></a>
+      </li>
+    </ul>
+  </div>
+    
+    <body>
+    <section class="home-section">
+      <header>
+        <div class="containerHeader">
+            <img src = "{% static 'images/header.png' %}" 
+          width="1250" height="130" ></img>
+         
+        </div>
+      </header>
+      <form action="" method="post">
+        {% csrf_token %}
+      <div class="text"><h4>Parts/Accessories<br><br></h4>
+        <div class="row">
+          <div class="parts">
+            <h3><br><br>LIST OF TOP ITEMS<br></h3>
+            <div class="column">
+            {{form.parts}}
+          <!-- <div class="checkBox">
+            <label class="containerCB"><p>Spray Paint (450mL) - ₱ 95</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Car Floormat - ₱ 395</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Steering Wheel - ₱ 1,500</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+              </label>
+            <label class="containerCB"><p>Car Headlight - ₱ 1,080</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Car Tires - ₱ 1,480</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+              </label>
+          </div> -->
+        </div>
+        <div class="column">
+          <div class="checkBox">
+            <!-- <label class="containerCB"><p>Car Phone Holder - ₱ 52</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Car Air Freshener - ₱ 132</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Car Seat - ₱ 2,800</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+              </label>
+            <label class="containerCB"><p>Car Mirror - ₱ 194</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCB"><p>Break Pads - ₱ 1,092</p>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+              </label> -->
+          </div>
+        </div>      
+        </div>
+        <button class="btnParts">Buy</button>
+      </div>   
+      </form>
+    </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+
+      searchBtn.addEventListener("click", () => {
+        // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+
+      // following are the code to change sidebar button(optional)
+      function menuBtnChange() {
+        if (sidebar.classList.contains("open")) {
+          closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+        } else {
+          closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
+        }
+      }
+    </script>
+    <script src="{% static 'js/Aapp.js' %}"></script>
+  </body>
+</html>
