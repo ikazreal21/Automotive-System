@@ -620,3 +620,8 @@ header a:hover {
 #calendar {
   width: 90%;
 }
+
+.schedule {
+  width: 98%;
+  margin: auto;
+}
